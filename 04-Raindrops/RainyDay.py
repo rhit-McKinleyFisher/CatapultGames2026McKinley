@@ -134,7 +134,7 @@ def main():
 
         # DONE 4:   Make the pygame.QUIT event stop the game.
 
-        # TODO 27: Inside the game loop (AFTER the events loop above), get the list of keys that are currently pressed.
+        # DONE 27: Inside the game loop (AFTER the events loop above), get the list of keys that are currently pressed.
         #     Arrange so that the Cloud moves:
         #       5 pixels (or 10 pixels) to the right if the Right Arrow key (pygame.K_RIGHT) is pressed.
         #       5 pixels (or 10 pixels) to the left  if the Left  Arrow key (pygame.K_LEFT)  is pressed.
@@ -142,6 +142,16 @@ def main():
         #       5 pixels (or 10 pixels) down         if the Down  Arrow key (pygame.K_DOWN)  is pressed.
         # DISCUSS: If you want something to happen once per key press, put it in the events loop above
         #          If you want something to continually happen while holding the key, put it after the events loop.
+        cloud_speed = 10
+        pressed_keys = pygame.key.get_pressed()
+        if pressed_keys[pygame.K_UP]:
+            cloud.y -= cloud_speed
+        if pressed_keys[pygame.K_DOWN]:
+            cloud.y += cloud_speed
+        if pressed_keys[pygame.K_LEFT]:
+            cloud.x -= cloud_speed
+        if pressed_keys[pygame.K_RIGHT]:
+            cloud.x += cloud_speed
 
         # DONE 5: Inside the game loop, draw the screen (fill with white)
         screen.fill(pygame.Color("White"))
